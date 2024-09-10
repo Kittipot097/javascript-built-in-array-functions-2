@@ -375,4 +375,13 @@ const bills = [
 
 // Start coding here
 
-const newBills;
+let newBills = (bills) => {
+  console.log(bills.length)
+  console.log(bills)
+  return bills.filter(bill => bill.member === null)
+}
+
+newBills(bills)
+console.log(newBills(bills).length)
+console.log(newBills(bills))
+console.log(bills.length)

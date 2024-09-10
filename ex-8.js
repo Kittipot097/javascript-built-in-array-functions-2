@@ -374,5 +374,20 @@ const bills = [
 ];
 
 // Start coding here
+const billMembersLocation = (bills) => bills.map(bill => bill.location);
+// console.log(billMembersLocation(bills));
 
-const totalPaidByLocation;
+const totalPaidByLocation = (bills) => {
+    const locations = billMembersLocation(bills);
+    let locationTotals = {};
+    locations.forEach(location => {
+        if (!locationTotals[location]) {
+            locationTotals[location] = bills.filter(bill => bill.location === location).reduce((total, bill) => total + bill.total, 0);
+        }
+    });
+    
+    return locationTotals;
+};
+
+const result = totalPaidByLocation(bills);
+console.log(result);

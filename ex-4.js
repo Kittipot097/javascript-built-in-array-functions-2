@@ -374,4 +374,20 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+const billMembers = (bills) => bills.filter(bill => bill.member !== null).map(bill => bill.member.name);
+const billMembersArray = billMembers(bills);
+// console.log(billMembers(bills));
+// const totalMembers = billMembers(bills).filter((name, index, self) => self.indexOf(name) === index);
+const findMembers = (billMembersArray) => {
+  const newArryBills = [];
+  return billMembersArray.filter( bill => {
+    if(newArryBills.includes(bill)) {
+      return false;
+    } else {
+      newArryBills.push(bill);
+      return true;
+    }
+  })
+}
+const totalMembers = findMembers(billMembersArray)
+console.log(totalMembers);
